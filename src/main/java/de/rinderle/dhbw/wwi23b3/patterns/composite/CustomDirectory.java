@@ -19,6 +19,10 @@ public class CustomDirectory implements FileSystemComponent {
         components.remove(component);
     }
 
+    public void accept(Visitor visitor){
+        visitor.visit(this);
+    }
+
     @Override
     public int getSize() {
         int result = 0;
