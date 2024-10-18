@@ -1,0 +1,22 @@
+name: Maven Install on Push
+
+on:
+  push:
+    branches:
+      - '**'  # Jeder branch wird berücksichtigt
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Verwendet eine Ubuntu-Maschine
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17' # In der pom.xml so vorgegeben
+
+      - name: Run Maven Install
+        run: ./mvnw install

@@ -3,6 +3,7 @@ package de.rinderle.dhbw.wwi23b3.patterns.composite;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CustomDirectory implements FileSystemComponent {
     private String name;
     private List<FileSystemComponent> components = new ArrayList<>();
@@ -26,5 +27,9 @@ public class CustomDirectory implements FileSystemComponent {
             result += component.getSize();
         }
         return result;
+    }
+
+    public void accept(FileSystemVisitor visitor) {
+        visitor.visit(this);
     }
 }

@@ -13,4 +13,9 @@ public class CustomFile implements FileSystemComponent {
     public int getSize() {
         return size;
     }
+
+    // implementierung der accept() Methode des Visitors
+    public void accept(FileSystemVisitor visitor){
+        visitor.visit(this);
+    }
 }
